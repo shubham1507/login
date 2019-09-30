@@ -1,0 +1,23 @@
+<div style="text-align:center" *ngIf="!isLoggedIn">
+  <div style="text-align:center">
+    <h1>
+      Login App
+    </h1>
+  </div>
+  <form (submit)="loginUser($event)">
+    <div class="container">
+      <div>
+        <input type="text" [(ngModel)]="userName" autocomplete="off" placeholder="Username" name="username">
+      </div>
+      <div>
+        <input type="password" [(ngModel)]="password" autocomplete="off" placeholder="Password" name="password">
+      </div>
+      <div>
+        <button type="submit" id="submit" [disabled]="!(userName.length && password.length)">Login</button>
+      </div>
+    </div>
+  </form>
+  <div *ngIf="isPassWrong">
+    Wrong username or password!
+  </div>
+</div>
